@@ -2,6 +2,34 @@
 
 The Makefile template for CLI Tool written in Golang.
 
+## Requirements
+
+- `make`
+- [ghg](https://github.com/Songmu/ghg) - Get the executable from github releases easily
+
+This makefile get build and packages tools by ghg.
+
+Installing ghg is in Mac with brew:
+
+```console
+$ brew install Songmu/tap/ghg
+```
+
+Please look a [ghg pages](https://github.com/Songmu/ghg) when installation for other environment.
+
+However requirement other tools. But you can use automatically install with ghg.
+
+After the makefile settings, type this:
+```console
+$ make get-tools
+```
+
+This command install tools that are:
+
+- [dep](https://github.com/golang/dep) - Go dependency management tool
+- [goxz](https://github.com/Songmu/goxz) - Just do cross building and archiving go tools conventionally
+- [ghr](https://github.com/tcnksm/ghr) - Upload multiple artifacts to GitHub Release in parallel
+
 ## Usage
 
 ### 1. Installation `jetpack.mk` to your tools directory.
@@ -38,13 +66,6 @@ This step easy. You type this:
 ```console
 $ make init
 ```
-
-Installing tools are:
-
-- [ghg](https://github.com/Songmu/ghg) - Get the executable from github releases easily
-- [dep](https://github.com/golang/dep) - Go dependency management tool
-- [goxz](https://github.com/Songmu/goxz) - Just do cross building and archiving go tools conventionally
-- [ghr](https://github.com/tcnksm/ghr) - Upload multiple artifacts to GitHub Release in parallel
 
 ### 4. test, build, release!
 

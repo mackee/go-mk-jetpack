@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags)
 
 all: build
 
-init: get-tools depinit depdir
+init: depinit depdir
 
 depinit:
 	dep init
