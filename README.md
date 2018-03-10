@@ -10,7 +10,7 @@ This example use `git submodule`.
 
 ```console
 $ cd $GOPATH/src/github.com/yourname/yourtool
-$ git submodule add _jetpack git@github.com:mackee/go-mk-jetpack
+$ git submodule add git@github.com:mackee/go-mk-jetpack _jetpack 
 ```
 
 ### 2. Create a `Makefile`.
@@ -80,8 +80,10 @@ This process is build for cross-platform and packaging to zip file. Package file
 Let's release!
 
 ```console
-$ make release
+$ GITHUB_TOKEN=xxxxxx make release
 ```
+
+`GITHUB_TOKEN` is github api token. I recommend configuration using at [direnv](https://github.com/direnv/direnv).
 
 You will do this to open the page.
 
