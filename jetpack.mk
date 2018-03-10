@@ -1,4 +1,4 @@
-.PHONY: get-deps get-tools all test build package release
+.PHONY: get-deps get-tools depinit depdir all test build package release open-release clean
 
 VERSION := $(shell git describe --tags)
 
@@ -40,3 +40,7 @@ release:
 
 open-release:
 	open https://$(PACKAGE_PATH)/releases/tag/${VERSION}
+
+clean:
+	rm _artifacts/*
+	rm _bin/*
