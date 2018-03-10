@@ -10,11 +10,10 @@ depinit:
 	dep init
 
 get-tools:
-	if [ ! which ghg ]; then\
-		echo "You must install ghg or manuall installing of golang/dep Songmu/goxz tcnksm/ghr." \
-		echo "Example: brew install Songmu/tap/ghg" \
-	fi
-
+	which ghg || \
+		echo "You must install ghg or manuall installing of golang/dep Songmu/goxz tcnksm/ghr.\n"\
+		"Example: brew install Songmu/tap/ghg"
+	which ghg || exit 1
 	ghg get golang/dep
 	ghg get Songmu/goxz
 	ghg get tcnksm/ghr
