@@ -1,6 +1,6 @@
 # go-mk-jetpack
 
-The Makefile for CLI Tool written in Golang.
+The Makefile template for CLI Tool written in Golang.
 
 ## Usage
 
@@ -9,7 +9,7 @@ The Makefile for CLI Tool written in Golang.
 This example use `git submodule`.
 
 ```console
-$ cd $GOPATH/src/github.co/yourname/yourtool
+$ cd $GOPATH/src/github.com/yourname/yourtool
 $ git submodule add _jetpack git@github.com:mackee/go-mk-jetpack
 ```
 
