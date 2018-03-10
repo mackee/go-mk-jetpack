@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags)
 
 all: build
 
-init: get-tools depinit
+init: get-tools depinit depdir
 
 depinit:
 	dep init
@@ -14,6 +14,10 @@ get-tools:
 	ghg get golang/dep
 	ghg get Songmu/goxz
 	ghg get tcnksm/ghr
+
+depdir:
+	mkdir -p _artifacts
+	mkdir -p _bin
 
 get-deps:
 	dep ensure

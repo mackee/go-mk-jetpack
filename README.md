@@ -89,6 +89,25 @@ You will do this to open the page.
 $ make open-release
 ```
 
+## Recommend settings
+
+The `go-mk-jetpack` is create to packages at `_artifacts` and create a binary at `_bin`.
+
+So this directory is ignore of git.
+
+In `.gitignore`:
+
+```
+_artifacts
+_bin
+```
+
+Also When try your tool at development, binary at `_bin/yourtool`. If you need set `_bin` to `$PATH`, you will use [direnv](https://github.com/direnv/direnv) and specify this at `.envrc` to can run your tool.
+
+```
+export PATH=$GOPATH/src/$PACKAGE_PATH/_bin:$PATH
+```
+
 ## Licence
 
 [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
