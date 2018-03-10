@@ -14,7 +14,7 @@ get-tools:
 		echo "You must install ghg or manuall installing of golang/dep Songmu/goxz tcnksm/ghr.\n"\
 		"Example: brew install Songmu/tap/ghg"
 	which ghg || exit 1
-	ghg get golang/dep
+	go get -u github.com/golang/dep/cmd/dep
 	ghg get Songmu/goxz
 	ghg get tcnksm/ghr
 
@@ -30,7 +30,7 @@ test:
 	go vet
 
 build:
-	go build -o _bin/$(CMD_NAME) -tags="$(TAGS)" -ldflags="-X $(PACKAGE_PATH).Version=${VERSION}"
+	go build -o _bin/$(CMD_NAME) -ldflags="-X $(PACKAGE_PATH).Version=${VERSION}" $(CMD_PATH)
 
 package:
 	goxz -pv ${VERSION} -os=linux,darwin -arch=amd64 -d ./_artifacts $(CMD_PATH)
