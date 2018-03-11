@@ -4,7 +4,7 @@ VERSION := $(shell git describe --tags)
 
 all: build
 
-init: depinit depdir
+init: depinit initdir
 
 depinit:
 	dep init
@@ -18,7 +18,7 @@ get-tools:
 	ghg get Songmu/goxz
 	ghg get tcnksm/ghr
 
-depdir:
+initdir:
 	mkdir -p _artifacts
 	mkdir -p _bin
 
@@ -29,10 +29,10 @@ test:
 	go test -v -race
 	go vet
 
-build: clean
+build: initdir clean
 	go build -o _bin/$(CMD_NAME) -ldflags="-X $(PACKAGE_PATH).Version=${VERSION}" $(CMD_PATH)
 
-package: clean
+package: initdir clean
 	goxz -pv ${VERSION} -os=linux,darwin -arch=amd64 -d ./_artifacts $(CMD_PATH)
 
 release:
