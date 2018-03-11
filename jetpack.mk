@@ -29,10 +29,10 @@ test:
 	go test -v -race
 	go vet
 
-build: initdir clean
+build: initdir
 	go build -o _bin/$(CMD_NAME) -ldflags="-X $(PACKAGE_PATH).Version=${VERSION}" $(CMD_PATH)
 
-package: initdir clean
+package: initdir
 	goxz -pv ${VERSION} -os=linux,darwin -arch=amd64 -d ./_artifacts $(CMD_PATH)
 
 release:
