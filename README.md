@@ -38,7 +38,7 @@ This example use `git submodule`.
 
 ```console
 $ cd $GOPATH/src/github.com/yourname/yourtool
-$ git submodule add git@github.com:mackee/go-mk-jetpack _jetpack 
+$ git submodule add https://github.com/mackee/go-mk-jetpack _jetpack 
 ```
 
 ### 2. Create a `Makefile`.
