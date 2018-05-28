@@ -2,6 +2,8 @@
 
 VERSION := $(shell git describe --tags)
 
+BUILD_OPTS = -build-tags netgo -build-ldflags='-extldflags "-static" -X $(PACKAGE_PATH).Version=${VERSION}'
+
 all: build
 
 init: depinit initdir
@@ -33,7 +35,7 @@ build: initdir
 	go build -o _bin/$(CMD_NAME) -ldflags="-X $(PACKAGE_PATH).Version=${VERSION}" $(CMD_PATH)
 
 package: initdir
-	goxz -pv ${VERSION} -os=linux,darwin -arch=amd64 -d ./_artifacts $(CMD_PATH)
+	CGO_ENABLED=0 goxz -pv ${VERSION} -os=linux,darwin -arch=amd64 $(BUILD_OPTS) -d ./_artifacts $(CMD_PATH)
 
 release:
 	ghr ${VERSION} _artifacts
