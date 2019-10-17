@@ -9,14 +9,13 @@ all: build
 init: depinit initdir
 
 depinit:
-	dep init
+	go mod init
 
 get-tools:
 	which ghg || \
-		echo "You must install ghg or manuall installing of golang/dep Songmu/goxz tcnksm/ghr.\n"\
+		echo "You must install ghg or manuall installing of Songmu/goxz tcnksm/ghr.\n"\
 		"Example: brew install Songmu/tap/ghg"
 	which ghg || exit 1
-	go get -u github.com/golang/dep/cmd/dep
 	ghg get Songmu/goxz
 	ghg get tcnksm/ghr
 
@@ -25,7 +24,7 @@ initdir:
 	mkdir -p _bin
 
 get-deps:
-	dep ensure
+	go mod download
 
 test:
 	go test -v -race
